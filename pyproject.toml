@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "homehub"
+version = "0.1.0"
+description = "HomeHub SDK for Python: A seamless integration toolkit for MinIO and MongoDB on NAS, facilitating efficient home data management."
+homepage = "https://garden.maxieewong.com/000.wiki/HomeHub%20SDK%EF%BC%9ASimplifying%20Home%20Data%20Management/"
+documentation = "https://garden.maxieewong.com/000.wiki/HomeHub%20SDK%EF%BC%9ASimplifying%20Home%20Data%20Management/"
+repository = "https://github.com/maxiee/homehub_python"
+authors = ["Maxiee <maxieewong@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
