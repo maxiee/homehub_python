@@ -2,7 +2,7 @@
 
 HomeHub SDK for Python is an integration toolkit designed to streamline the process of managing data stored in MinIO and MongoDB on Network Attached Storage (NAS) systems. This SDK simplifies access and operations across various devices and platforms, providing a consistent and efficient way to handle home data management tasks.
 
-For more insights into the concepts and ideas behind this SDK, check out my article: ["Multi-Device Data Management: Secure Storage with MinIO and MongoDB on NAS"](https://garden.maxieewong.com/000.wiki/Multi-Device Data Management：Secure Storage with MinIO and MongoDB on NAS/).
+For more insights into the concepts and ideas behind this SDK, check out my article: ["Multi-Device Data Management: Secure Storage with MinIO and MongoDB on NAS"](https://garden.maxieewong.com/000.wiki/Multi-Device%20Data%20Management%EF%BC%9ASecure%20Storage%20with%20MinIO%20and%20MongoDB%20on%20NAS/).
 
 ## Features
 
@@ -33,7 +33,7 @@ Ensure you have MinIO and MongoDB set up on your NAS. Refer to our detailed guid
 
 ## Documentation
 
-For detailed documentation, including API references and advanced usage, visit my blog[HomeHub SDK：Simplifying Home Data Management](https://garden.maxieewong.com/000.wiki/HomeHub SDK：Simplifying Home Data Management/).
+For detailed documentation, including API references and advanced usage, visit my blog [HomeHub SDK：Simplifying Home Data Management](https://garden.maxieewong.com/000.wiki/HomeHub%20SDK%EF%BC%9ASimplifying%20Home%20Data%20Management/).
 
 ## Contributing
 
