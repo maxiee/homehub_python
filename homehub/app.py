@@ -4,7 +4,7 @@ from minio import Minio
 
 
 class Application:
-    def __init__(self, app_name, mongo_uri, minio_endpoint, access_key, secret_key, secure=True):
+    def __init__(self, db_name, app_name, mongo_uri, minio_endpoint, access_key, secret_key, secure=True):
         """
         初始化应用，连接 MongoDB 和 MinIO
         
@@ -14,13 +14,15 @@ class Application:
         :param access_key: MinIO 访问密钥
         :param secret_key: MinIO 访问密钥
         """
+        self.db_name = db_name
         self.app_name = app_name
         self.mongo_client = MongoClient(mongo_uri)
         self.minio_client = Minio(minio_endpoint, access_key=access_key, secret_key=secret_key, secure=secure)
 
     def get_collection(self, collection_name):
         """获取 MongoDB 集合，集合名包含应用名称作为前缀"""
-        return self.mongo_client[f"{self.app_name}_{collection_name}"]
+        # 举例，获取 mongodb://100.117.209.140:27017/ray_memx 下的 collection_name 集合
+        return self.mongo_client[self.db_name][self.app_name + '_' + collection_name]
     
     def get_documents(self, collection_name, offset=0, limit=None):
         """
