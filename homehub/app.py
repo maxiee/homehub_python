@@ -2,8 +2,9 @@ import os
 from pymongo import MongoClient
 from minio import Minio
 
+
 class Application:
-    def __init__(self, app_name, mongo_uri, minio_endpoint, access_key, secret_key):
+    def __init__(self, app_name, mongo_uri, minio_endpoint, access_key, secret_key, secure=True):
         """
         初始化应用，连接 MongoDB 和 MinIO
         
@@ -15,12 +16,26 @@ class Application:
         """
         self.app_name = app_name
         self.mongo_client = MongoClient(mongo_uri)
-        self.minio_client = Minio(minio_endpoint, access_key=access_key, secret_key=secret_key, secure=True)
+        self.minio_client = Minio(minio_endpoint, access_key=access_key, secret_key=secret_key, secure=secure)
 
     def get_collection(self, collection_name):
         """获取 MongoDB 集合，集合名包含应用名称作为前缀"""
-        db = self.mongo_client[self.app_name]
-        return db[f"{self.app_name}_{collection_name}"]
+        return self.mongo_client[f"{self.app_name}_{collection_name}"]
+    
+    def get_documents(self, collection_name, offset=0, limit=None):
+        """
+        获取 MongoDB 集合中的文档，支持分页
+
+        :param collection_name: 集合名称
+        :param offset: 跳过文档的数量，用于分页
+        :param limit: 返回的文档数量上限
+        :return: 包含文档的列表
+        """
+        collection = self.get_collection(collection_name)
+        if limit is not None:
+            return list(collection.find().skip(offset).limit(limit))
+        else:
+            return list(collection.find().skip(offset))
 
     # MongoDB 数据操作示例
     def insert_document(self, collection_name, document):
